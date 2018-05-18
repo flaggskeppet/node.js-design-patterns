@@ -1,3 +1,0 @@
-http://www.example.com
-http://www.example.com/link1
-http://thiswillbedownforsure.com

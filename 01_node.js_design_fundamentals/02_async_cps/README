@@ -1,4 +1,0 @@
-This sample demonstrates how asynchronous continuation-passing style works.
-To run this sample, execute the following command from a terminal:
-
-  node main

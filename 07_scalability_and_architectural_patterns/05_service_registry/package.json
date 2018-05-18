@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "http-proxy": "^1.6.2",
-    "seaport": "^2.0.9"
-  }
-}

@@ -1,5 +1,0 @@
-This sample demonstrates how to use a simple generator
-
-To run the sample code run the command:
-  node --harmony-generators fruitGenerator
-
