@@ -11,7 +11,7 @@ module.exports = function totalSales(item, callback) {
   let sum = 0;
   salesDb.createValueStream()  // [1]
     .on('data', data => {
-      if(!item || data.item === item) {  // [2]
+      if(!item || data.item === item) {  // search expression matches or does not exist (get all)
         sum += data.amount;
       }
     })

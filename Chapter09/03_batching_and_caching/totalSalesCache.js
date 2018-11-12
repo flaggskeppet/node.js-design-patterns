@@ -1,3 +1,9 @@
+/*
+This module has both caching and batching
+Caching: Returns callbacks for cached items ( eg "queries")
+Batching: Finds running callbacks for an item and invokes the when a result is returned.
+*/
+
 "use strict";
 
 const totalSales = require('./totalSales');
@@ -9,21 +15,22 @@ module.exports = function totalSalesBatch(item, callback) {
   const cached = cache[item];
   if (cached) {
     console.log('Cache hit');
-    return process.nextTick(callback.bind(null, null, cached));
+    // In a non-blocking manner add the callback to be invoked at next tick: 
+    return process.nextTick(callback.bind(null, null, cached)); //callback.bind(context, error, res)
   }
   
-  if (queues[item]) {
+  if (queues[item]) { 
     console.log('Batching operation');
     return queues[item].push(callback);
   }
   
-  queues[item] = [callback];
+  queues[item] = [callback]; 
   totalSales(item, (err, res) => {
     if (!err) {
-      cache[item] = res;
+      cache[item] = res; // Add the result to the cache
       setTimeout(() => {
         delete cache[item];
-      }, 30 * 1000); //30 seconds expiry
+      }, 30 * 1000); //30 seconds cache expiry
     }
     
     const queue = queues[item];

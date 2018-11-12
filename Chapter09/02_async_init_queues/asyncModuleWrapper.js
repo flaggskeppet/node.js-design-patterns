@@ -2,7 +2,9 @@
 
 const asyncModule = require('./asyncModule');
 
-//The wrapper
+// The wrapper.
+// Invokes the api methods on the currently active state object
+// Note how the wrapper uses the old "function"-construction, to be able to access the arguments array.
 const asyncModuleWrapper = module.exports;
 asyncModuleWrapper.initialized = false;
 asyncModuleWrapper.initialize = function() {
@@ -13,7 +15,9 @@ asyncModuleWrapper.tellMeSomething = function() {
   activeState.tellMeSomething.apply(activeState, arguments);
 };
 
-//The state to use when the module is not yet initialized
+/**************************************************
+// The state to use when the module is not yet initialized
+**************************************************/
 let pending = [];
 let notInitializedState = {
 
@@ -22,6 +26,7 @@ let notInitializedState = {
       asyncModuleWrapper.initalized = true;
       activeState = initializedState;
       
+      // Execute all commands stored in pending queue
       pending.forEach(function(req) {
         asyncModule[req.method].apply(null, req.args);
       });
@@ -32,6 +37,7 @@ let notInitializedState = {
   },
   
   tellMeSomething: function(callback) {
+    // We are not activated: Create a command and add it to the queue.
     return pending.push({
       method: 'tellMeSomething',
       args: arguments
@@ -39,8 +45,9 @@ let notInitializedState = {
   }
   
 };
-
+/**************************************************
 //The state to use when the module is initialized
+**************************************************/
 let initializedState = asyncModule;
 
 

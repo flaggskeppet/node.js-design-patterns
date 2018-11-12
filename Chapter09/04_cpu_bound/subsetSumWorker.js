@@ -1,3 +1,8 @@
+/*
+This is the child process. 
+It runs subsetSum and forwards the result to the parent process
+*/
+
 "use strict";
 
 const SubsetSum = require('./subsetSum');

@@ -10,6 +10,11 @@ asyncModule.initialize = callback => {
   }, 10000);
 };
 
+/*
+Note how this method takes a callback-function and invokes it 
+according to node callback pattern: 
+with an error as first argument OR with a string as a second argument
+*/
 asyncModule.tellMeSomething = callback => {
   process.nextTick(() => {
     if(!asyncModule.initialized) {

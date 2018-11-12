@@ -2,7 +2,10 @@
 <html>
   <head>
     <script>
-      var ws = new WebSocket('ws://' + window.document.location.host);
+      // Create a socket listening on localhost:8080
+      var ws = new WebSocket('ws://' + window.document.location.host); 
+      
+      // Start listening for messages socket
       ws.onmessage = function(message) {
         var msgDiv = document.createElement('div');
         msgDiv.innerHTML = message.data;

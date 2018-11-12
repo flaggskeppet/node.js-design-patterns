@@ -3,6 +3,9 @@
 const asyncModule = module.exports;
 
 asyncModule.initialized = false;
+/*
+initialize will invoke the supplied callback function after 10 seconds.
+*/
 asyncModule.initialize = callback => {
   setTimeout(() => {
     asyncModule.initialized = true;

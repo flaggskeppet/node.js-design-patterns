@@ -1,5 +1,8 @@
 This sample demonstrates how to integrate a chat application using Redis as message broker
 
+The two applications would sit behind a load balancer in a real scenario.
+But this example shows how two different application servers share the same data using redis.
+
 As pre-requisite to this sample, you first need to install Redis.
   http://redis.io/download
 

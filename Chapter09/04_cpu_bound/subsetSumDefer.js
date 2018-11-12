@@ -10,12 +10,17 @@ class SubsetSumDefer extends EventEmitter {
     this.totalSubsets = 0;
   }
 
+  /*
+  This method is the core of the pattern. Use setIntermediate to execute the function
+  after any pending I/O requests.
+  Much like the asynchroun parallell execution in chapter 3
+  */
   _combineInterleaved(set, subset) {
-    this.runningCombine++;
-    setImmediate(() => {
+    this.runningCombine++; // We have a new started invocation
+    setImmediate(() => { // Add the function to the queue (much like adding it to setTimeOut, 0
       this._combine(set, subset);
       if(--this.runningCombine === 0) {
-        this.emit('end');
+        this.emit('end'); // We have no running tasks left 
       }
     });
   }

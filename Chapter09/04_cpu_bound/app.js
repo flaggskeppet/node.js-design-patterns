@@ -1,9 +1,9 @@
 "use strict";
 
 const http = require('http');
-const SubsetSum = require('./subsetSum');
-//const SubsetSum = require('./subsetSumDefer');
-//const SubsetSum = require('./subsetSumFork');
+// const SubsetSum = require('./subsetSum');
+// const SubsetSum = require('./subsetSumDefer');
+const SubsetSum = require('./subsetSumFork');
 
 http.createServer((req, res) => {
   const url = require('url').parse(req.url, true);

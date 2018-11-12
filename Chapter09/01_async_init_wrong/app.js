@@ -8,6 +8,9 @@ asyncModule.initialize(() => {
   console.log('Async module initialized');
 });
 
+/*
+Start an http server and delegate to route when request matches
+*/
 http.createServer((req, res) => {
   if (req.method === 'GET' && req.url === '/say') {
     return routes.say(req, res);
