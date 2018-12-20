@@ -16,7 +16,7 @@ const db = dbFactory('example-db');
 const authService = authServiceFactory(db, 'SHHH!');
 const authController = authControllerFactory(authService);
 
-//initialize plugin
+//initialize plugin and provide the dependencies of the parent application
 require('authsrv-plugin-logout')(app, authService, db);
 
 app.post('/login', authController.login);

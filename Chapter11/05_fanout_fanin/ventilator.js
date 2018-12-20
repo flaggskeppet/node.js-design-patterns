@@ -7,7 +7,7 @@ const batchSize = 10000;
 const maxLength = process.argv[2];
 const searchHash = process.argv[3];
 
-const ventilator = zmq.socket('push');  // [1]
+const ventilator = zmq.socket('push');  // Create a push socket
 ventilator.bindSync("tcp://*:5016");
 
 let batch = [];

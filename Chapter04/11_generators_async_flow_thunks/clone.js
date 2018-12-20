@@ -10,6 +10,7 @@ function asyncFlowWithThunks(generatorFunction) {
     }
     const results = [].slice.call(arguments, 1);
     const thunk = generator.next(results.length > 1 ? results : results[0]).value;
+    console.log('thunk',thunk)
     thunk && thunk(callback);
   }
   const generator = generatorFunction();

@@ -11,6 +11,6 @@ Then you need to generate the bundle file with webpack:
 
 Then you need to run the server using babel-cli:
 
-  node_modules/.bin/babel-cli server.js
+  node_modules/.bin/babel-node server.js
 
 Finally you can point your browser to http://localhost:3000 to run the app.

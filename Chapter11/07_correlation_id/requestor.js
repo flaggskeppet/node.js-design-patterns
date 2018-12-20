@@ -1,7 +1,7 @@
 "use strict";
 
 const replier = require('child_process')
-                .fork(`${__dirname}/replier.js`);
+                .fork(`${__dirname}/replier.js`); // Start the replier in a child process
 const request = require('./request')(replier);
 
 request({a: 1, b: 2, delay: 500}, res => {

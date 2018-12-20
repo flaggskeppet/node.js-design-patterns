@@ -1,7 +1,7 @@
 "use strict";
 
 function* twoWayGenerator() {
-  const what = yield null;
+  const what = yield;
   console.log('Hello ' + what);
 }
 
