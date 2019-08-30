@@ -66,7 +66,7 @@ class Invoker {
   }
 
   runRemotely (cmd) {
-    request.post('http://localhost:3000/cmd',
+    request.post('http://localhost:3001/cmd',
       {json: cmd.serialize()},
       err => {
         console.log('Command executed remotely', cmd.serialize());

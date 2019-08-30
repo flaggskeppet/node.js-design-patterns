@@ -35,7 +35,9 @@ exports.checkToken = (token, callback) => {
       throw new Error('Token expired');
     }
   } catch(err) {
-    return process.nextTick(callback.bind(null, err));
+    // Catch the error and bind the errormsg to the callback function
+    // process.nextTick will execute the function.
+    return process.nextTick(callback.bind(null, err)); 
   }
     
   users.get(userData.username, (err, user) => {

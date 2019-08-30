@@ -9,7 +9,7 @@ module.exports = class OnlineState {
     this.failsafeSocket.socket.write(data);
   };
 
-  activate() {     //[2]
+  activate() {     // Traverses the queue (populated by onlinestate) and write to socket.
     this.failsafeSocket.queue.forEach(data => {
       this.failsafeSocket.socket.write(data);
     });

@@ -6,6 +6,9 @@ const mkdirp = require('mkdirp');
 const path = require('path');
 const utilities = require('./utilities');
 
+/*
+Demonstrates callback hell and deep intendenation levels. Solution in the next example.
+*/
 function spider(url, callback) {
   const filename = utilities.urlToFilename(url);
   fs.exists(filename, exists => {        //[1]

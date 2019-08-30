@@ -1,6 +1,10 @@
 This sample demonstrate how to build a simple authentication server
 using hard-coded dependencies.
 
+NOTE: This version of leveldown requires an old version of node-gyp 
+that does not work on node 10.x. nvm to solve this 'nvm use 8.0' fixes it.
+Then do a 'npm rebuild' (performs a 'node-gyp rebuild').
+
 To try the sample first install its dependencies:
   npm install
   
@@ -18,4 +22,4 @@ Now, to obtain a new authentication token run:
   curl -X POST -d '{"username": "alice", "password":"secret"}' http://localhost:3000/login -H "Content-Type: application/json"
 
 To check the validity of a token:
-  curl -X GET -H "Accept: application/json" http://localhost:3000/checkToken?token=<TOKEN HERE> 
+  curl -X GET -H "Accept: application/json" http://localhost:3000/checkToken?token=<TOKEN HERE>   

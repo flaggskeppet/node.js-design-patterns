@@ -31,6 +31,12 @@ function download(url, filename, callback) {
   });
 }
 
+/*
+Demonstrates how to fix callback hell in former example. We use the following tricks:
+1. Exit as soon as possible using return statements
+2. Use named functions for callbacks and reuse them
+3. Modularize the code
+*/
 function spider(url, callback) {
   const filename = utilities.urlToFilename(url);
   fs.exists(filename, exists => {

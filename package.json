@@ -1,0 +1,22 @@
+{
+  "name": "node.js_design_patterns",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flaggskeppet/node.js-design-patterns.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flaggskeppet/node.js-design-patterns/issues"
+  },
+  "homepage": "https://github.com/flaggskeppet/node.js-design-patterns#readme",
+  "dependencies": {
+    "glob": "7.1.4"
+  }
+}

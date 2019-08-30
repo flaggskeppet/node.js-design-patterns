@@ -8,15 +8,15 @@ class FailsafeSocket {
     this.options = options;
     this.queue = [];
     this.currentState = null;
-    this.socket = null;
+    this.socket = null; // Instantiated in OfflineState
     this.states = {
-      offline: new OfflineState(this),
+      offline: new OfflineState(this), // DI: States get parent class in the ctors for easy access
       online: new OnlineState(this)
     };
     this.changeState('offline');
   }
 
-  changeState (state) { //[2]
+  changeState (state) { // gets the state by key from states object and calls its activate method.
     console.log('Activating state: ' + state);
     this.currentState = this.states[state];
     this.currentState.activate();
@@ -28,5 +28,5 @@ class FailsafeSocket {
 }
 
 module.exports = options => {
-  return new FailsafeSocket(options);
+  return new FailsafeSocket(options); // Exports a factory function, returning an instance of our FailSafeSocket class
 };

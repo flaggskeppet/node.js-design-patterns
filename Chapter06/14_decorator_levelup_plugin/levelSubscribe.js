@@ -1,14 +1,14 @@
 "use strict";
 
 module.exports = function levelSubscribe(db) {
-  db.subscribe = (pattern, listener) => {       //[1]
-    db.on('put', (key, val) => {         //[2]
+  db.subscribe = (pattern, listener) => {       // Attach the function directly on the subject (object augmentation)
+    db.on('put', (key, val) => {         // Listen on the put event
       const match = Object.keys(pattern).every(
-        k => (pattern[k] === val[k])     //[3]
+        k => (pattern[k] === val[k])     // Make sure everything in the pattern matches incoming object
       );
       
       if(match) {
-        listener(key, val);            //[4]
+        listener(key, val);            // Execute the listener
       }
     });
   };

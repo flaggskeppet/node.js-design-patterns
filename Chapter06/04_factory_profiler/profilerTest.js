@@ -12,5 +12,5 @@ function getRandomArray(len) {
   p.end();
 }
 
-getRandomArray(1e6);
+getRandomArray(1e7);
 console.log('Done');

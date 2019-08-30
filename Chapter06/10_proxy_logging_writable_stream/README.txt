@@ -5,3 +5,11 @@ in the console.
 To run the example simply execute:
 
   node loggingWritable
+
+Why is the prototype approach better in this case?
+Because we can set up an inheritance in run time, when the proxy object is instantiated
+
+const proto = Object.getPrototypeOf(writableOrig);
+LoggingWritable.prototype = Object.create(proto);
+
+vs 

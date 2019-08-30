@@ -27,6 +27,7 @@ function asyncFlow(generatorFunction) {
 asyncFlow(function* (callback) {
   const fileName = path.basename(__filename);
   // Yield the generator, passing it the result of a readfile
+  // The callbacks will resume the generator when the async operation completes
   const myself = yield fs.readFile(fileName, 'utf8', callback);
   yield fs.writeFile(`clone_of_${fileName}`, myself, callback);
   yield fs.writeFile(`another_file.txt`, 'foobarbaz', callback);
