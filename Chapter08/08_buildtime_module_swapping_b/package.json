@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "jquery": "^2.2.1",
+    "jquery": "^3.5.0",
     "toastr": "^2.1.2",
     "webpack": "^1.12.14"
   }
