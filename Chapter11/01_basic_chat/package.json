@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "ecstatic": "^1.4.0",
+    "ecstatic": "^2.2.2",
     "ws": "^1.0.1"
   }
 }
