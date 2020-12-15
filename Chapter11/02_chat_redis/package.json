@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "ecstatic": "^1.4.0",
+    "ecstatic": "^4.1.4",
     "redis": "^2.6.0-1",
     "ws": "^1.0.1"
   }
