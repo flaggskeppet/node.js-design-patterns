@@ -11,6 +11,6 @@
   "devDependencies": {
     "jquery": "^2.2.1",
     "toastr": "^2.1.2",
-    "webpack": "^1.12.14"
+    "webpack": "^5.75.0"
   }
 }
